@@ -1,5 +1,8 @@
-require "adventure/version"
+require 'open-uri'
+require 'pry'
+require 'nokogiri'
 
-module Adventure
-  # Your code goes here...
-end
+require_relative "./adventure/version"
+require_relative "./adventure/cli"
+
+

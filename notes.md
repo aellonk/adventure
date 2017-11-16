@@ -1,31 +1,29 @@
-- A command line interface for finding adventures nearby
+A command line interface for finding adventures nearby
 
 user types adventure
 
 Prompt:
 Which state would you like to see adventures for?
+
 get input, modify input to include dashes as spaces
 
 What kind of adventure are you in the mood for? 
-List activities
-Backpacking  Bodysurfing  Camping  Canoeing Cycling Diving  Fishing  Fitness  Hiking  Kayaking  Kiteboarding Mountain Biking  Photography  Rafting  Rock Climbing  Running  Skiing Snowboarding  Snowshoeing  Stand Up Paddle  Surfing  Swimming Volunteering  Yoga
 
-https://www.theoutbound.com/adventures/united-states/new-york/new-york?activity=photography,rafting,rock-climbing
+(List activities)
 
-or type browse all https://www.theoutbound.com/new-york
+1. Backpacking  2. Bodysurfing  3. Camping  Canoeing Cycling Diving  Fishing  Fitness  Hiking  Kayaking  Kiteboarding Mountain Biking  Photography  Rafting  Rock Climbing  Running  Skiing Snowboarding  Snowshoeing  Stand Up Paddle  Surfing  Swimming Volunteering  Yoga
 
 show a list of 10 adventures with selected activities nearby
 
-1. Hike the Staten Island Greenbelt
-2. Stroll the Brooklyn Bridge Park Piers
-3. Climb Outdoors at DUMBO Boulders
-4. Sunset Picnic at Brooklyn Bridge Park
+1. Hike the Devil's Path
+2. Hike to Sugarloaf Mountain
+3. Hike to Chittenango Falls
+4. Hike Storm King Mountain
+etc.
 
-Prompt user: Enter the number for the adventure you would like to learn more about.
+Prompt user: Which adventure would you like to learn more about? Enter the number. 
 
-User selects a number for the adventure. CLI shows adventure details
-
-
+4
 
 Activities:
 Photography, Hiking
@@ -60,6 +58,44 @@ Camera
 Hammock
 
 Would you like to see the Google map of the starting point? (y/n)
+
 If yes launch browser with map 
-If no, would you like to pick another adventure? Type 'list' to show the list of adventures you selected from, or 'start' to start over with a new activity.
+If no, would you like to pick another adventure? Type 'list' to show the list of adventures you selected from, or 'start' to start over with a new activity
+
+______________
+
+Start programming from the place where the user interacts with it.
+
+The user will type adventure and it will run an executable file to start the program.
+
+That is the first file I am going to make, and it will go in the bin directory.I'll call it adventure. 
+
+Since it is not a ruby file, I need to specify that the operating system should interpret the file through ruby.
+#!/usr/bin/env ruby
+
+I will also put a test in here, so I can say puts "Hello World"
+
+If it works so far when I run this file I should see hello world.
+
+I will go over to my terminal and type 
+./bin/adventure
+
+Results in permission denied because the operating system is trying to protect me from running files with random code so I need to specify that it is ok to run this file.
+
+cd bin
+
+Type ls-lah (list file details) and see that adventure has readable and writable permissions but it is missing the x for executable permissions.
+
+I can add executable permissions by changing the mode with chmod +x adventure
+
+I'll type -ls lah to make sure it changed, and there you see I now have permission to run the file. 
+
+I'm going to go ahead and run it
+./adventure
+
+Great! cd ..
+
+______________
+
+
 
