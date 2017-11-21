@@ -1,8 +1,8 @@
 require "spec_helper"
 
-describe Adventure do
+describe Adventures do
   it "has a version number" do
-    expect(Adventure::VERSION).not_to be nil
+    expect(Adventures::VERSION).not_to be nil
   end
 
   it "does something useful" do
