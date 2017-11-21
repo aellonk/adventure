@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative '../lib/adventure'
+require_relative '../lib/adventures'
 
-Adventure::CLI.new.call
+Adventures::CLI.new.call

@@ -1,3 +1,3 @@
-module Adventure
+module Adventures
   VERSION = "0.1.0"
 end

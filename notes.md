@@ -1,6 +1,6 @@
 A command line interface for finding adventures nearby
 
-user types adventure
+user types adventures
 
 Prompt:
 Which state would you like to see adventures for?
