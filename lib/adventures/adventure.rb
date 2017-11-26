@@ -1,0 +1,3 @@
+class Adventures::Scraper
+
+end
