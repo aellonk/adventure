@@ -1,3 +1,2 @@
-class Adventures::Scraper
-
+class Adventures::Adventure
 end
