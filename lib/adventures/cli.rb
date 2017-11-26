@@ -7,6 +7,8 @@ class Adventures::CLI
 		puts "Which state would you like to see adventures for?"
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
+		puts "What kind of activity are you in the mood for? Enter the number."
+		puts "\n"
 		list_activities
 		input = gets.strip.to_i
 		puts "\n"
@@ -19,9 +21,6 @@ class Adventures::CLI
 	end
 
 	def list_activities
-		puts "What kind of activity are you in the mood for? Enter the number."
-		puts "\n"
-		
 		activities = @@ACTIVITIES[0].collect.with_index {|activity, index|
 			 "#{index +1}. #{activity} " }
 			puts activities.join
@@ -44,15 +43,6 @@ class Adventures::CLI
 		activities = @@ACTIVITIES[5].collect.with_index(20) {|activity, index|
 			 "#{index +1}. #{activity} " }
 			puts activities.join
-
-		puts "\n"
-		input = gets.strip.to_i
-		puts "\n"
-		case input
-		when 1..23
-			puts "The following adventures are recommended for #{@@ACTIVITIES.flatten[input - 1].downcase}:"
-		puts "\n"
-		end
 	end
 
 	def list_adventures
