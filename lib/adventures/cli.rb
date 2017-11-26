@@ -8,6 +8,13 @@ class Adventures::CLI
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
 		list_activities
+		input = gets.strip.to_i
+		puts "\n"
+		case input
+		when 1..23
+			puts "The following adventures are recommended for #{@@ACTIVITIES.flatten[input - 1].downcase}:"
+		end
+		puts "\n"
 		list_adventures
 	end
 
