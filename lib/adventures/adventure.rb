@@ -3,7 +3,7 @@ class Adventures::Adventure
 	attr_accessor :title, :location
 
 	@@all = []
-	
+
 	def self.new_from_scrape(a)
 		self.new(
 			a.css("div.info h3.title").text,
@@ -16,4 +16,9 @@ class Adventures::Adventure
 		@location = location
 		@@all << self
 	end
+
+	def self.all
+		@@all
+	end
+	
 end
