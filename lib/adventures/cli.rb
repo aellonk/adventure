@@ -46,6 +46,8 @@ class Adventures::CLI
 	end
 
 	def list_adventures
-		puts "1. Hike the Devil's Path\n2. Hike to Sugarloaf Mountain\n3. Hike to Chittenango Falls\n4. Hike Storm King Mountain"
+		 Adventures::Adventure.all.each do |a|
+		 	puts "#{a.title} - #{a.location}"
+		 end
 	end
 end
