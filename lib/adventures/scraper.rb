@@ -1,6 +1,6 @@
 class Adventures::Scraper
 	def get_page
-		 doc = Nokogiri::HTML(open("https://www.theoutbound.com/new-york/backpacking"))	
+		doc = Nokogiri::HTML(open("https://www.theoutbound.com/new-york/#{activity}"))	
 	end
 	
 	def scrape_adventure
