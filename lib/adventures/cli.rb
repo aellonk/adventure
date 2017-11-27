@@ -24,6 +24,15 @@ class Adventures::CLI
 		end
 		puts "\n"
 		list_adventures
+		puts "\n"
+		puts "Which adventure would you like to learn more about? Enter the number."
+		choice = gets.strip.to_i
+		puts "\n"
+		count = Adventures::Adventure.all.size
+		case choice
+		when 1..count
+			puts "Here are the details:"
+		end
 	end
 
 	def list_activities
