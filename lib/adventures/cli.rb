@@ -48,8 +48,8 @@ class Adventures::CLI
 	end
 
 	def list_adventures
-		 Adventures::Adventure.all.each do |a|
-		 	puts "#{a.title} - #{a.location}"
+		 Adventures::Adventure.all.each_with_index do |a, index|
+		 	puts "#{index + 1}. #{a.title} (#{a.location})"
 		 end
 	end
 end
