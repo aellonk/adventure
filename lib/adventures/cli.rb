@@ -12,9 +12,11 @@ class Adventures::CLI
 		list_activities
 		input = gets.strip.to_i
 		puts "\n"
-		case input
+		activity = @@ACTIVITIES.flatten[input - 1].downcase
+		Adventures::Scraper.new.gather_adventures(activity)
+		case activity
 		when 1..23
-			puts "The following adventures are recommended for #{@@ACTIVITIES.flatten[input - 1].downcase}:"
+			puts "The following adventures are recommended for #{activity}:"
 		end
 		puts "\n"
 		list_adventures
