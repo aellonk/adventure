@@ -4,6 +4,10 @@ class Adventures::CLI
 
 	def call
 		puts "Welcome, let's find your next adventure!"
+		start
+	end
+
+	def start
 		puts "Which state would you like to see adventures for?"
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
