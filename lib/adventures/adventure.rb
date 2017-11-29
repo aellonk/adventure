@@ -27,4 +27,32 @@ class Adventures::Adventure
 		self.all[id -1]
 	end
 
+	def doc
+		@doc ||= Nokogiri::HTML(open(self.url))
+	end
+
+	def suggested_activities
+		@suggested_activities ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[1]/p[2]").text
+	end
+
+	def skill_level
+		@skill_level ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[2]/p[2]").text
+	end
+
+	def season
+		@season ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[3]/p[2]").text
+	end
+
+	def trail_type
+		@trail_type ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[4]/p[2]").text
+	end
+
+	def rt_distance
+		@rt_distance ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[5]/p[2]").text
+	end
+
+	def elevation_gain
+		@elevation_gain ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[6]/p[2]").text
+	end
+
 end
