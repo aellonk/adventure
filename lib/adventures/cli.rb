@@ -32,7 +32,9 @@ class Adventures::CLI
 		case choice
 		when 1..count
 			puts "Here are the details:"
+			puts "\n"
 		end
+		adventure = Adventures::Adventure.find(choice)
 	end
 
 	def list_activities
