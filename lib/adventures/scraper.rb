@@ -21,8 +21,4 @@ class Adventures::Scraper
 		title.downcase.gsub(' ', '-')
 	end
 
-	def scrape_details
-		doc = Nokogiri::HTML(open("https://www.theoutbound.com/#{state}/#{activity_url_creator(activity)}/title_url_creator(title)"))
-	end
-
 end
