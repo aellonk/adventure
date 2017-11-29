@@ -7,7 +7,7 @@ class Adventures::Adventure
 	def self.new_from_scrape(a)
 		self.new(
 			a.css("div.info h3.title").text,
-			a.css("div.info p.location").text.strip
+			a.css("div.info p.location").text.strip,
 			"https://www.theoutbound.com/#{a.css("a").attribute("href").text}"
 		)
 	end
