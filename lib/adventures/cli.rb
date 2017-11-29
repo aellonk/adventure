@@ -35,6 +35,7 @@ class Adventures::CLI
 			puts "\n"
 		end
 		adventure = Adventures::Adventure.find(choice)
+		list_details(adventure)
 	end
 
 	def list_activities
@@ -66,5 +67,16 @@ class Adventures::CLI
 		 Adventures::Adventure.all.each_with_index do |a, index|
 		 	puts "#{index + 1}. #{a.title} (#{a.location})"
 		 end
+	end
+
+	def list_details(adventure)
+		puts <<~DOC
+			Activities: #{adventure.suggested_activities}
+			Skill Level: #{adventure.skill_level}
+			Season: #{adventure.season}
+			Trail Type: #{adventure.trail_type}
+			RT Distance:#{adventure.rt_distance}
+			Elevation Gain: #{adventure.elevation_gain}
+		DOC
 	end
 end
