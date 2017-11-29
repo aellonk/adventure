@@ -18,7 +18,7 @@ class Adventures::CLI
 		puts "\n"
 		activity = @@ACTIVITIES.flatten[input - 1].downcase
 		Adventures::Scraper.new.gather_adventures(activity, state)
-		case activity
+		case input
 		when 1..23
 			puts "The following adventures are recommended for #{activity}:"
 		end
