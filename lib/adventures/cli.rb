@@ -77,6 +77,7 @@ class Adventures::CLI
 			Trail Type: #{adventure.trail_type}
 			RT Distance:#{adventure.rt_distance}
 			Elevation Gain: #{adventure.elevation_gain}
+			\n #{adventure.description}
 		DOC
 	end
 end

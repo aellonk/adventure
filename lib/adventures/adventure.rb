@@ -55,4 +55,10 @@ class Adventures::Adventure
 		@elevation_gain ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[6]/p[2]").text
 	end
 
+	def description
+		@description ||= doc.xpath("//span[@class='adventure-description']/p").collect { |para|
+			para.text
+		}.join("\n\n")
+	end
+
 end
