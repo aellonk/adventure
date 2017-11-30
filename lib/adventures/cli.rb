@@ -4,6 +4,7 @@ class Adventures::CLI
 
 	def call
 		puts "Welcome, let's find your next adventure!"
+		puts "Type 'exit' to quit at any time."
 		start
 	end
 
