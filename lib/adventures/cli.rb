@@ -51,7 +51,9 @@ class Adventures::CLI
 			input = gets.strip.downcase
 			if input == "y"
 				puts "\n"
-				start
+				list_adventures
+				puts "\n"
+				continue
 			else
 				puts "\n"
 				puts "Thanks, and have a good adventure!"
