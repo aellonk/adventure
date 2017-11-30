@@ -1,6 +1,6 @@
 class Adventures::Adventure
 
-	attr_accessor :title, :location, :url, :suggested_activities, :skill_level, :season, :trail_type, :rt_distance, :elevation_gain, :description
+	attr_accessor :title, :location, :url, :suggested_activities, :skill_level, :season, :trail_type, :rt_distance, :elevation_gain, :summary, :description
 
 	@@all = []
 
@@ -53,6 +53,10 @@ class Adventures::Adventure
 
 	def elevation_gain
 		@elevation_gain ||= doc.xpath("//div[@class='keylineb m2y']/ul/li[6]/p[2]").text
+	end
+
+	def summary
+		@summary ||= doc.xpath("//div[@class='section summary blurb pad2b']/p").text
 	end
 
 	def description
