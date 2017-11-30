@@ -11,42 +11,54 @@ class Adventures::CLI
 		puts "Which state would you like to see adventures for? Enter the full name."
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
-		puts "What kind of activity are you in the mood for? Enter the number."
-		puts "\n"
-		list_activities
-		puts "\n"
-		input = gets.strip.to_i
-		puts "\n"
-		case input
-		when 1..23
-			activity = @@ACTIVITIES.flatten[input - 1].downcase
-			Adventures::Scraper.new.gather_adventures(activity, state)
-			puts "The following adventures are recommended for #{activity}:"
-		else
-			puts "Oops, please try another number."
+		if state == "exit"
+			exit
+		end
+			puts "What kind of activity are you in the mood for? Enter the number."
+			puts "\n"
+			list_activities
 			puts "\n"
 			input = gets.strip.to_i
-			activity = @@ACTIVITIES.flatten[input - 1].downcase
-			Adventures::Scraper.new.gather_adventures(activity, state)
-			puts "The following adventures are recommended for #{activity}:"
-		end
-		puts "\n"
-		list_adventures
-		puts "\n"
+			puts "\n"
+			if input == "exit"
+				exit
+			elsif input.between?(1, 23)
+				activity = @@ACTIVITIES.flatten[input - 1].downcase
+				Adventures::Scraper.new.gather_adventures(activity, state)
+				puts "The following adventures are recommended for #{activity}:"
+				puts "\n"
+				list_adventures
+				puts "\n"
+				continue
+			end
+
+	end
+		
+	def continue
 		puts "Which adventure would you like to learn more about? Enter the number."
 		choice = gets.strip.to_i
 		puts "\n"
 		count = Adventures::Adventure.all.size
-		case choice
+		case choice 
 		when 1..count
 			puts "Here are the details:"
 			puts "\n"
-		else
-			puts "Oops, please try another number."
+			adventure = Adventures::Adventure.find(choice)
+			list_details(adventure)
+			puts "\n"
+			puts "Would you like to see another adventure? Enter Y or N"
+			input = gets.strip.downcase
+			if input == "y"
+				puts "\n"
+				start
+			else
+				puts "\n"
+				puts "Thanks, and have a good adventure!"
+				exit
+			end
 		end
-		adventure = Adventures::Adventure.find(choice)
-		list_details(adventure)
 	end
+		
 
 	def list_activities
 		activities = @@ACTIVITIES[0].collect.with_index {|activity, index|
