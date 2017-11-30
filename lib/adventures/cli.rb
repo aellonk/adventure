@@ -8,18 +8,26 @@ class Adventures::CLI
 	end
 
 	def start
-		puts "Which state would you like to see adventures for?"
+		puts "Which state would you like to see adventures for? Enter the full name."
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
 		puts "What kind of activity are you in the mood for? Enter the number."
 		puts "\n"
 		list_activities
+		puts "\n"
 		input = gets.strip.to_i
 		puts "\n"
-		activity = @@ACTIVITIES.flatten[input - 1].downcase
-		Adventures::Scraper.new.gather_adventures(activity, state)
 		case input
 		when 1..23
+			activity = @@ACTIVITIES.flatten[input - 1].downcase
+			Adventures::Scraper.new.gather_adventures(activity, state)
+			puts "The following adventures are recommended for #{activity}:"
+		else
+			puts "Oops, please try another number."
+			puts "\n"
+			input = gets.strip.to_i
+			activity = @@ACTIVITIES.flatten[input - 1].downcase
+			Adventures::Scraper.new.gather_adventures(activity, state)
 			puts "The following adventures are recommended for #{activity}:"
 		end
 		puts "\n"
@@ -33,6 +41,8 @@ class Adventures::CLI
 		when 1..count
 			puts "Here are the details:"
 			puts "\n"
+		else
+			puts "Oops, please try another number."
 		end
 		adventure = Adventures::Adventure.find(choice)
 		list_details(adventure)
