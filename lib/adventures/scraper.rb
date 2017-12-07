@@ -17,8 +17,5 @@ class Adventures::Scraper
 		end
 	end
 
-	def title_url_creator(title)
-		title.downcase.gsub(' ', '-')
-	end
 
 end
