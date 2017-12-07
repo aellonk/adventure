@@ -5,16 +5,16 @@ class Adventures::CLI
 	def call
 		puts "Welcome, let's find your next adventure!"
 		puts "Type 'exit' to quit at any time."
-		start
-	end
-
-	def start
 		puts "Which state would you like to see adventures for? Enter the full name."
 		state = gets.strip.downcase.gsub(' ', '-')
 		puts "\n"
 		if state == "exit"
 			exit
 		end
+		start(state)
+	end
+
+	def start(state)
 			puts "What kind of activity are you in the mood for? Enter the number."
 			puts "\n"
 			list_activities
@@ -26,6 +26,10 @@ class Adventures::CLI
 			elsif input.between?(1, 23)
 				activity = @@ACTIVITIES.flatten[input - 1].downcase
 				Adventures::Scraper.new.gather_adventures(activity, state)
+				if Adventures::Adventure.all.empty?
+					puts "There are no adventures for that activity. Please try another activity."
+					start(state)
+				end
 				puts "The following adventures are recommended for #{activity}:"
 				puts "\n"
 				list_adventures
@@ -59,6 +63,9 @@ class Adventures::CLI
 				puts "Thanks, and have a good adventure!"
 				exit
 			end
+		else
+			puts "Please enter a valid number."
+			continue
 		end
 	end
 		
